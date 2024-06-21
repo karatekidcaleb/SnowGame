@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5qahwkfaw4ac"]
+
+[ext_resource type="Texture2D" uid="uid://be7sxdm1a2cub" path="res://art/tree.png" id="1_n2dnh"]
+[ext_resource type="Texture2D" uid="uid://eqbtt6u2mc63" path="res://art/tree3.png" id="2_lcl83"]
+[ext_resource type="Texture2D" uid="uid://c0bxvn6imui5n" path="res://art/tree2.png" id="3_75brt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8v2p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cc4wa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n2dnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lcl83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_75brt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lcl83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Treething" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_j8v2p")
+position = Vector2(332, 236)
+scale = Vector2(2.125, 2.375)
+sprite_frames = SubResource("SpriteFrames_cc4wa")
+frame = 1
+frame_progress = 0.36638
