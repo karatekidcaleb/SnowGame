@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://8w6dllhump6g"]
+
+[ext_resource type="Script" path="res://House.cs" id="1_ccctx"]
+[ext_resource type="Texture2D" uid="uid://ch762t62j5xsn" path="res://art/house1.png" id="1_gq386"]
+[ext_resource type="Texture2D" uid="uid://cmg2c647wlc1m" path="res://art/house2.png" id="3_8bv25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvoh"]
+size = Vector2(72.831, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7h6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gq386")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8bv25")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="House" type="Area2D"]
+script = ExtResource("1_ccctx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4.30139, 0.286009)
+rotation = 0.675442
+shape = SubResource("RectangleShape2D_qqvoh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.245, 0.245)
+sprite_frames = SubResource("SpriteFrames_o7h6r")
+animation = &"open"

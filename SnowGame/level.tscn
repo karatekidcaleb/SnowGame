@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c32gepw8hdsdp"]
+[gd_scene load_steps=5 format=3 uid="uid://c32gepw8hdsdp"]
 
 [ext_resource type="Script" path="res://Level.cs" id="1_dbiml"]
+[ext_resource type="PackedScene" uid="uid://8w6dllhump6g" path="res://House.tscn" id="2_haxfn"]
+[ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://Player.tscn" id="3_p2hfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcjrh"]
 size = Vector2(1152, 648)
@@ -18,5 +20,12 @@ shape = SubResource("RectangleShape2D_dcjrh")
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.45098, 1, 1, 1)
+color = Color(0.408721, 0.891072, 0.786869, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="House" parent="." instance=ExtResource("2_haxfn")]
+position = Vector2(992, 136)
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_p2hfh")]
+position = Vector2(768, 136)

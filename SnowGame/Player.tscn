@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://cighy0i7edpgk"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_00h0b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p2cuo"]
+load_path = "res://.godot/imported/guy1.png-e17cd3b44a6fe9d0a0752898f8d17d90.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4nwfa"]
+load_path = "res://.godot/imported/guy2.png-b4b151a83b9b8e5da3ae0e70becef70b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2lnkb"]
+load_path = "res://.godot/imported/guy3.png-f3094566c379e77f6c307150c0fad247.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n2p58"]
+load_path = "res://.godot/imported/guy4.png-0c5ac0ea032cc2ae3c5b7afe29b70a28.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gmt2r"]
+load_path = "res://.godot/imported/guy12.png-2134f668bb0e6d6ed2da4f1e0ce1da82.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sclwg"]
+load_path = "res://.godot/imported/guy14.png-c425aa4a0911267f7c1c2790009fe751.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_77htw"]
+load_path = "res://.godot/imported/guy13.png-dfd9e740147df2e8ddbe82366daa2cc6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi8q4"]
+load_path = "res://.godot/imported/guy10.png-5273bd1902e2f7e519c40acc7ccd3cb8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uxt0c"]
+load_path = "res://.godot/imported/guy9.png-e22a6e085f6c0af1c74ed8e107c7e22b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8o60p"]
+load_path = "res://.godot/imported/guy11.png-da9185dc95faf7ba3a11d39de0b6103d.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1381w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_p2cuo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_p2cuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_4nwfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_2lnkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_n2p58")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_gmt2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_sclwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_77htw")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_mi8q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_uxt0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_mi8q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_8o60p")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mgv8v"]
+radius = 94.7368
+height = 407.018
+
+[node name="Player" type="Area2D"]
+scale = Vector2(0.285, 0.285)
+script = ExtResource("1_00h0b")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1381w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-14.0351, 49.1228)
+shape = SubResource("CapsuleShape2D_mgv8v")
+
+[connection signal="area_entered" from="." to="." method="OnBodyEntered"]
