@@ -1,31 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://c32gepw8hdsdp"]
+[gd_scene load_steps=7 format=3 uid="uid://c32gepw8hdsdp"]
 
-[ext_resource type="Script" path="res://Level.cs" id="1_dbiml"]
-[ext_resource type="PackedScene" uid="uid://8w6dllhump6g" path="res://House.tscn" id="2_haxfn"]
-[ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://Player.tscn" id="3_p2hfh"]
+[ext_resource type="Script" path="res://Level.cs" id="1_3id8e"]
+[ext_resource type="Texture2D" uid="uid://byqkh0ktpodve" path="res://art/defaultBG.png" id="2_gv7ss"]
+[ext_resource type="PackedScene" uid="uid://8w6dllhump6g" path="res://House.tscn" id="3_b487o"]
+[ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://Player.tscn" id="4_x0t4o"]
+[ext_resource type="PackedScene" uid="uid://cwr0sovf2qapt" path="res://Plant.tscn" id="5_xxfjk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcjrh"]
 size = Vector2(1152, 648)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_dbiml")
+script = ExtResource("1_3id8e")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-22, -256)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(576, 324)
 shape = SubResource("RectangleShape2D_dcjrh")
 
-[node name="ColorRect" type="ColorRect" parent="Area2D"]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.408721, 0.891072, 0.786869, 1)
-metadata/_edit_use_anchors_ = true
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+offset_right = 1577.0
+offset_bottom = 842.0
+texture = ExtResource("2_gv7ss")
 
-[node name="House" parent="." instance=ExtResource("2_haxfn")]
+[node name="House" parent="." instance=ExtResource("3_b487o")]
 position = Vector2(992, 136)
 scale = Vector2(2, 2)
 
-[node name="Player" parent="." instance=ExtResource("3_p2hfh")]
+[node name="Player" parent="." instance=ExtResource("4_x0t4o")]
 position = Vector2(768, 136)
+
+[node name="Plant" parent="." instance=ExtResource("5_xxfjk")]
+position = Vector2(664, 103)
+
+[connection signal="Grow" from="Player" to="Plant" method="OnPlantGrow"]

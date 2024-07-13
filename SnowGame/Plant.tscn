@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwr0sovf2qapt"]
+[gd_scene load_steps=8 format=3 uid="uid://cwr0sovf2qapt"]
 
 [ext_resource type="Texture2D" uid="uid://8c8nc0j53gbr" path="res://art/plant1.png" id="1_6abde"]
+[ext_resource type="Script" path="res://Plant.cs" id="1_c45vo"]
 [ext_resource type="Texture2D" uid="uid://bgr3gmill6t16" path="res://art/plant2.png" id="2_es452"]
 [ext_resource type="Texture2D" uid="uid://bekmfom0ya10q" path="res://art/plant3.png" id="3_hk1l5"]
 [ext_resource type="Texture2D" uid="uid://cv1sqmieecngr" path="res://art/plant4.png" id="4_h2g7q"]
@@ -28,6 +29,8 @@ animations = [{
 }]
 
 [node name="Plant" type="Area2D"]
+script = ExtResource("1_c45vo")
+growth_progress = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_srvgm")
@@ -35,5 +38,4 @@ shape = SubResource("CircleShape2D_srvgm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.305, 0.305)
 sprite_frames = SubResource("SpriteFrames_jih20")
-frame = 2
-frame_progress = 0.506957
+frame_progress = 0.570228

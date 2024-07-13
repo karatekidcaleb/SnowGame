@@ -4,9 +4,14 @@ public partial class Player : Area2D
 {
     [Signal]
     public delegate void HitEventHandler();
+    [Signal]
+    public delegate void GrowEventHandler();
 
     [Export]
     public int Speed { get; set; } = 100; // How fast the player will move (pixels/sec).
+
+    [Export]
+    public bool waterable { get; set; } = true;
 
     public Vector2 ScreenSize { get; set; } // Size of the game window.
 
@@ -85,9 +90,16 @@ public partial class Player : Area2D
 		if(body.Name.ToString().Contains("House"))
 		{
 			House house = (House)body;
+            waterable = true;
 			GD.Print("hi");
 			// Must be deferred as we can't change physics properties on a physics callback.
-        	GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        	//GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
 		}
+        else if (body.Name.ToString().Contains("Plant"))
+        {
+            EmitSignal(SignalName.Grow, waterable);
+            waterable = false;
+            //GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+        }
     }
 }
