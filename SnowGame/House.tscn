@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://8w6dllhump6g"]
+[gd_scene load_steps=7 format=3 uid="uid://8w6dllhump6g"]
 
 [ext_resource type="Script" path="res://House.cs" id="1_ccctx"]
 [ext_resource type="Texture2D" uid="uid://ch762t62j5xsn" path="res://art/house1.png" id="1_gq386"]
 [ext_resource type="Texture2D" uid="uid://cmg2c647wlc1m" path="res://art/house2.png" id="3_8bv25"]
+[ext_resource type="Texture2D" uid="uid://dk7c4i455suqd" path="res://art/well.png" id="4_sh8no"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvoh"]
 size = Vector2(72.831, 64)
@@ -24,6 +25,14 @@ animations = [{
 "loop": true,
 "name": &"open",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sh8no")
+}],
+"loop": true,
+"name": &"well",
+"speed": 5.0
 }]
 
 [node name="House" type="Area2D"]
@@ -38,4 +47,4 @@ shape = SubResource("RectangleShape2D_qqvoh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.245, 0.245)
 sprite_frames = SubResource("SpriteFrames_o7h6r")
-animation = &"open"
+animation = &"well"
