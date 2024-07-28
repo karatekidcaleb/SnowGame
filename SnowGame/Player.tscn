@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cighy0i7edpgk"]
+[gd_scene load_steps=18 format=3 uid="uid://cighy0i7edpgk"]
 
 [ext_resource type="Script" path="res://Player.cs" id="1_00h0b"]
 [ext_resource type="Texture2D" uid="uid://bolr7b65gfu6b" path="res://art/mc_front_breathing_2.png" id="2_fupp5"]
@@ -105,6 +105,10 @@ animations = [{
 radius = 18.0
 height = 56.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oeose"]
+closed = false
+polygon = PackedVector2Array(-34, 51, -33, 12, -22, -22, -10, -43, 13, -43, 32, 21, 30, 54)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_00h0b")
 
@@ -120,3 +124,6 @@ shape = SubResource("CapsuleShape2D_mgv8v")
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 position_smoothing_enabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_oeose")

@@ -26,6 +26,14 @@ public partial class Level : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		for(int i=0; i<GetChildCount() - 1; i++)
+		{
+			GetChild<Node2D>(i).ZIndex = (int)GetChild<Node2D>(i).Position.Y;
+		}
+		if(GetNode<House>("House").GetNode<AnimatedSprite2D>("AnimatedSprite2D").Frame == 1)
+			GetNode<PointLight2D>("DoorLight").Enabled = false;
+		else
+			GetNode<PointLight2D>("DoorLight").Enabled = true;
 	}
 
 	public void OnChangeLevelRequest()

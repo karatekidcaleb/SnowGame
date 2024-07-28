@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c32gepw8hdsdp"]
+[gd_scene load_steps=9 format=3 uid="uid://c32gepw8hdsdp"]
 
 [ext_resource type="Script" path="res://Level.cs" id="1_3id8e"]
 [ext_resource type="Texture2D" uid="uid://byqkh0ktpodve" path="res://art/defaultBG.png" id="2_gv7ss"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://Player.tscn" id="4_x0t4o"]
 [ext_resource type="PackedScene" uid="uid://cwr0sovf2qapt" path="res://Plant.tscn" id="5_xxfjk"]
 [ext_resource type="PackedScene" uid="uid://r6gc0c8idrw2" path="res://Door.tscn" id="6_txb2n"]
+[ext_resource type="Texture2D" uid="uid://br3ndguwqtfnp" path="res://art/neutralPointLight.PNG" id="7_7gi17"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w0a2v"]
+closed = false
+polygon = PackedVector2Array(912, 192, 920, 192, 936, 128, 944, 200, 952, 208)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3id8e")
@@ -23,6 +28,7 @@ texture = ExtResource("2_gv7ss")
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(22, 8)
 polygon = PackedVector2Array(-2, 832, -2, 8, 1574, 8, 1574, 840, 14, 840, 270, 672, 1326, 672, 1326, 176, 270, 184, 270, 672)
 
 [node name="House" parent="." instance=ExtResource("3_b487o")]
@@ -38,6 +44,20 @@ position = Vector2(816, 272)
 [node name="Door" parent="." instance=ExtResource("6_txb2n")]
 position = Vector2(368, 8)
 scale = Vector2(0.16, 0.16)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.619608, 0.619608, 0.619608, 1)
+
+[node name="DoorLight" type="PointLight2D" parent="."]
+position = Vector2(936, 200)
+scale = Vector2(7.02549, 3.0098)
+shadow_enabled = true
+texture = ExtResource("7_7gi17")
+texture_scale = 0.6
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(8, 0)
+occluder = SubResource("OccluderPolygon2D_w0a2v")
 
 [connection signal="ChangeLevelRequest" from="Player" to="." method="OnChangeLevelRequest"]
 [connection signal="Grow" from="Player" to="Plant" method="OnPlantGrow"]

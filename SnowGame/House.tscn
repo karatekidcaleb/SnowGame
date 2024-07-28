@@ -12,11 +12,14 @@ size = Vector2(72.831, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_8bv25")
+}, {
+"duration": 1.0,
 "texture": ExtResource("1_gq386")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 0.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -42,10 +45,8 @@ script = ExtResource("1_ccctx")
 visible = false
 position = Vector2(4.30139, 0.286009)
 rotation = 0.675442
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qqvoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.245, 0.245)
 sprite_frames = SubResource("SpriteFrames_o7h6r")
-animation = &"well"
