@@ -19,6 +19,11 @@ public partial class Main : Node2D
 		if (Input.IsActionPressed("change_level"))
     	{
         	level1.QueueFree();
+			GD.Print("WE DID IT!");
+			Input.ActionRelease("change_level");
+			var level_loader = GD.Load<PackedScene>("res://GameOver.tscn");
+			ColorRect level2 = (ColorRect)level_loader.Instantiate();
+			AddChild(level2);
     	}
 	}
 }

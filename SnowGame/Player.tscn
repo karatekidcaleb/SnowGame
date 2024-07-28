@@ -98,26 +98,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"up",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mgv8v"]
-radius = 38.0
-height = 104.0
+radius = 18.0
+height = 56.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_00h0b")
-Speed = 85
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1381w")
-animation = &"down"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
+position = Vector2(0, 38)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mgv8v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position_smoothing_enabled = true
-
-[connection signal="area_entered" from="." to="." method="OnBodyEntered"]

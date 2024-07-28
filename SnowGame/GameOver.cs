@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Level : Node2D
+public partial class GameOver : ColorRect
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -10,7 +10,7 @@ public partial class Level : Node2D
 		for (int i=0; i< new Random().Next()%4 + 5.0f; i++)
 		{
 			AnimatedSprite2D instance = (AnimatedSprite2D)tree_spawner.Instantiate();
-			float random_size = GD.Randf() * 0.2f + 0.15f;
+			float random_size = GD.Randf() * 0.2f + 0.1f;
 			instance.Scale = new Vector2(
 				x: random_size,
 				y: random_size
@@ -26,14 +26,5 @@ public partial class Level : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	}
-
-	public void OnChangeLevelRequest()
-	{
-		GD.Print("hi");
-		if(GetNode<StaticBody2D>("Plant").GetNode<AnimatedSprite2D>("AnimatedSprite2D").Frame == 3)
-		{
-			Input.ActionPress("change_level");
-		}
 	}
 }

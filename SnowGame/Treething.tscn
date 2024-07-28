@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5qahwkfaw4ac"]
+[gd_scene load_steps=8 format=3 uid="uid://b5qahwkfaw4ac"]
 
 [ext_resource type="Texture2D" uid="uid://cte37fimx0j36" path="res://art/tree.png" id="1_n2dnh"]
 [ext_resource type="Texture2D" uid="uid://bmo3e73xvomff" path="res://art/tree1.png" id="2_rtluy"]
@@ -36,6 +36,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0toqw"]
+radius = 18.127
+
 [node name="Treething" type="AnimatedSprite2D"]
 material = SubResource("CanvasItemMaterial_j8v2p")
 position = Vector2(332, 236)
@@ -43,3 +46,9 @@ scale = Vector2(0.895, 1)
 sprite_frames = SubResource("SpriteFrames_cc4wa")
 frame_progress = 0.140253
 script = ExtResource("4_d3igt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-22.3464, 248)
+shape = SubResource("CircleShape2D_0toqw")

@@ -35,13 +35,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="House" type="Area2D"]
+[node name="House" type="StaticBody2D"]
 script = ExtResource("1_ccctx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(4.30139, 0.286009)
 rotation = 0.675442
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qqvoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

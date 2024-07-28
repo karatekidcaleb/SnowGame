@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Plant : Area2D
+public partial class Plant : StaticBody2D
 {
 
 	[Export]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://r6gc0c8idrw2"]
+
+[ext_resource type="Script" path="res://Door.cs" id="1_d55pg"]
+[ext_resource type="Texture2D" uid="uid://i6bvrwre78nn" path="res://art/door.png" id="2_sanc6"]
+[ext_resource type="Texture2D" uid="uid://cjv23tn2vc25l" path="res://art/doorOpen.png" id="3_t88rl"]
+[ext_resource type="Texture2D" uid="uid://78f8k4381ue8" path="res://art/doorOpen2.png" id="4_y662x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqt3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sanc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t88rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y662x")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Door" type="AnimatableBody2D"]
+script = ExtResource("1_d55pg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bqt3m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-224, 240, 232, 240, 192, -80, 144, -192, 16, -216, -120, -208, -168, -144, -208, 0)

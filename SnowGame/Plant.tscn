@@ -28,7 +28,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Plant" type="Area2D"]
+[node name="Plant" type="StaticBody2D"]
 script = ExtResource("1_c45vo")
 growth_progress = 3
 
