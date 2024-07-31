@@ -62,12 +62,13 @@ public partial class Player : CharacterBody2D
 
         velocity = velocity.Normalized() * Speed;
 
-
+        PointLight2D flashlight = GetNode<PointLight2D>("Flashlight");
         var animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         if (velocity.Length() > 0)
             animatedSprite.Play();
         else
             animatedSprite.Animation = "up";
+            flashlight.Skew()
 
         if (velocity.X != 0)
         {

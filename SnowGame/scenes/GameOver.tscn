@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://q5pbpccm4fb8"]
 
-[ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://Player.tscn" id="1_vtghr"]
-[ext_resource type="Script" path="res://GameOver.cs" id="1_xxyev"]
+[ext_resource type="Script" path="res://scripts/GameOver.cs" id="1_hr46d"]
+[ext_resource type="PackedScene" uid="uid://cighy0i7edpgk" path="res://scenes/Player.tscn" id="2_ueelm"]
 
 [node name="ColorRect" type="ColorRect"]
 offset_right = 1151.0
 offset_bottom = 646.0
-color = Color(0, 0.505882, 0.219608, 1)
-script = ExtResource("1_xxyev")
+color = Color(0.117647, 0.556863, 0.839216, 1)
+script = ExtResource("1_hr46d")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -21,8 +21,8 @@ offset_top = -46.726
 offset_right = 11.8389
 offset_bottom = 39.274
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-text = "You did it! debug: this is a newly instantiated level"
+text = "you win"
 fit_content = true
 
-[node name="Player" parent="." instance=ExtResource("1_vtghr")]
+[node name="Player" parent="." instance=ExtResource("2_ueelm")]
 position = Vector2(456, 344)

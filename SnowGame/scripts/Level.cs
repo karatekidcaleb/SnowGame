@@ -6,7 +6,7 @@ public partial class Level : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var tree_spawner = GD.Load<PackedScene>("res://Treething.tscn");
+		var tree_spawner = GD.Load<PackedScene>("res://scenes/Treething.tscn");
 		for (int i=0; i< new Random().Next()%4 + 5.0f; i++)
 		{
 			AnimatedSprite2D instance = (AnimatedSprite2D)tree_spawner.Instantiate();

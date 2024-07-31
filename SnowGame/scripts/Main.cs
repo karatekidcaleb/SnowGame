@@ -7,8 +7,7 @@ public partial class Main : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var level_loader = GD.Load<PackedScene>("res://Level.tscn");
-		GD.Print("Hello, world!");
+		var level_loader = GD.Load<PackedScene>("res://scenes/Level.tscn");
 		level1 = (Level)level_loader.Instantiate();
 		AddChild(level1);
 	}
@@ -21,7 +20,7 @@ public partial class Main : Node2D
         	level1.QueueFree();
 			GD.Print("WE DID IT!");
 			Input.ActionRelease("change_level");
-			var level_loader = GD.Load<PackedScene>("res://GameOver.tscn");
+			var level_loader = GD.Load<PackedScene>("res://scenes/GameOver.tscn");
 			ColorRect level2 = (ColorRect)level_loader.Instantiate();
 			AddChild(level2);
     	}
