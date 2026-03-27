@@ -17,7 +17,7 @@ public partial class Player : CharacterBody2D
     public Camera2D camera;
 
     [Export]
-    public int Speed { get; set; } = 100; // How fast the player will move (pixels/sec).
+    public int Speed { get; set; }  // How fast the player will move (pixels/sec).
 
     [Export]
     public bool waterable { get; set; } = true;
