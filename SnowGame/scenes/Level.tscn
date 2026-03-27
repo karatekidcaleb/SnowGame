@@ -36,8 +36,11 @@ polygon = PackedVector2Array(-2, 832, -2, 8, 1574, 8, 1574, 840, 14, 840, 270, 6
 position = Vector2(992, 136)
 scale = Vector2(2, 2)
 
-[node name="Player" parent="." instance=ExtResource("4_5mubs")]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_5mubs")]
 position = Vector2(768, 136)
+camera = NodePath("../Camera2D")
 
 [node name="Plant" parent="." instance=ExtResource("5_byysq")]
 position = Vector2(816, 272)
@@ -47,11 +50,12 @@ position = Vector2(368, 8)
 scale = Vector2(0.16, 0.16)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.619608, 0.619608, 0.619608, 1)
+color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="DoorLight" type="PointLight2D" parent="."]
 position = Vector2(936, 200)
 scale = Vector2(7.02549, 3.0098)
+color = Color(0.74902, 0.388235, 0, 1)
 shadow_enabled = true
 texture = ExtResource("7_w5vsd")
 texture_scale = 0.98

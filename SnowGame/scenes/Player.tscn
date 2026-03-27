@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cighy0i7edpgk"]
+[gd_scene load_steps=19 format=3 uid="uid://cighy0i7edpgk"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_n3gt1"]
 [ext_resource type="Texture2D" uid="uid://bolr7b65gfu6b" path="res://art/mc_front_breathing_2.png" id="2_fupp5"]
@@ -109,21 +109,29 @@ height = 56.0
 closed = false
 polygon = PackedVector2Array(-34, 51, -33, 12, -22, -22, -10, -43, 13, -43, 32, 21, 30, 54)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ex1ee"]
+load_path = "res://.godot/imported/flashlight2.png-a553b4b6e9c70717177841347333b9a0.ctex"
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_n3gt1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1381w")
-animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 38)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mgv8v")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-position_smoothing_enabled = true
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_oeose")
+
+[node name="Flashlight" type="PointLight2D" parent="."]
+scale = Vector2(0.5, 0.5)
+color = Color(0, 0.917647, 0.917647, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = SubResource("CompressedTexture2D_ex1ee")
+offset = Vector2(960, 0)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

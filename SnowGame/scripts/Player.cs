@@ -12,6 +12,10 @@ public partial class Player : CharacterBody2D
     [Signal]
     public delegate void ChangeLevelRequestEventHandler();
 
+
+    [Export]
+    public Camera2D camera;
+
     [Export]
     public int Speed { get; set; } = 100; // How fast the player will move (pixels/sec).
 
@@ -23,6 +27,7 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
+        GetNode<RemoteTransform2D>("RemoteTransform2D").RemotePath = camera.GetPath();
         ScreenSize = GetViewportRect().Size;
         velocity = Vector2.Right * 0;
         Show();
@@ -51,29 +56,46 @@ public partial class Player : CharacterBody2D
     {
         velocity = Vector2.Zero;
 
+        bool moving = false;
         if (Input.IsActionPressed("move_right"))
+        {
             velocity.X += 1;
+            moving = true;
+        }
         if (Input.IsActionPressed("move_left"))
+        {
             velocity.X -= 1;
+            moving = true;
+        }
         if (Input.IsActionPressed("move_down"))
+        {
             velocity.Y += 1;
+            moving = true;
+        }
         if (Input.IsActionPressed("move_up"))
+        {
             velocity.Y -= 1;
+            moving = true;
+        }
 
         velocity = velocity.Normalized() * Speed;
 
         PointLight2D flashlight = GetNode<PointLight2D>("Flashlight");
+        flashlight.Rotation = velocity.Length() > 0 ? velocity.Angle() : flashlight.Rotation;
         var animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        if (velocity.Length() > 0)
+        if (moving)
             animatedSprite.Play();
         else
+        {
             animatedSprite.Animation = "up";
-            flashlight.Skew()
+            //flashlight.Rotation =  velocity.Y < 0 && moving == true ? (float)Math.PI / 2 : 3 * (float)Math.PI / 2;
+        }
 
         if (velocity.X != 0)
         {
             animatedSprite.Animation = "right";
             animatedSprite.FlipH = velocity.X < 0;
+            //flashlight.Rotation = velocity.X < 0 && moving == true ? (float)Math.PI : 0f;
         }
         else if (velocity.Y != 0)
         {
