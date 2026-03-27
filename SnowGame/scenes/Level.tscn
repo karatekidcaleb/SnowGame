@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cwr0sovf2qapt" path="res://scenes/Plant.tscn" id="5_byysq"]
 [ext_resource type="PackedScene" uid="uid://r6gc0c8idrw2" path="res://scenes/Door.tscn" id="6_cs1qb"]
 [ext_resource type="Texture2D" uid="uid://br3ndguwqtfnp" path="res://art/neutralPointLight.PNG" id="7_w5vsd"]
+[ext_resource type="PackedScene" uid="uid://b5qahwkfaw4ac" path="res://scenes/Treething.tscn" id="8_faw0r"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w0a2v"]
 closed = false
@@ -41,7 +42,6 @@ scale = Vector2(2, 2)
 [node name="Player" parent="." unique_id=982550792 node_paths=PackedStringArray("camera") instance=ExtResource("4_5mubs")]
 position = Vector2(768, 136)
 camera = NodePath("../Camera2D")
-Speed = 500
 
 [node name="Plant" parent="." unique_id=1930202034 instance=ExtResource("5_byysq")]
 position = Vector2(816, 272)
@@ -64,6 +64,9 @@ texture_scale = 0.98
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1744347673]
 position = Vector2(8, 0)
 occluder = SubResource("OccluderPolygon2D_w0a2v")
+
+[node name="Treething" parent="." unique_id=1517361539 instance=ExtResource("8_faw0r")]
+position = Vector2(616, 0)
 
 [connection signal="ChangeLevelRequest" from="Player" to="." method="OnChangeLevelRequest"]
 [connection signal="Grow" from="Player" to="Plant" method="OnPlantGrow"]
