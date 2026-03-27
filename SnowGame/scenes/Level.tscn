@@ -41,6 +41,7 @@ scale = Vector2(2, 2)
 [node name="Player" parent="." unique_id=982550792 node_paths=PackedStringArray("camera") instance=ExtResource("4_5mubs")]
 position = Vector2(768, 136)
 camera = NodePath("../Camera2D")
+Speed = 500
 
 [node name="Plant" parent="." unique_id=1930202034 instance=ExtResource("5_byysq")]
 position = Vector2(816, 272)
